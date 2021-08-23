@@ -26,6 +26,16 @@ function NewPotluck(props) {
                 <h2>New Potluck</h2>
 
 
+                {/* Errors */}
+                <div className='errors'>
+                    <div>{errors.name}</div>
+                    <div>{errors.month}</div>
+                    <div>{errors.day}</div>
+                    <div>{errors.year}</div>
+                    <div>{errors.ampm}</div>
+                </div>
+
+
                 {/* Event Details */}
                 <label>Event Name: 
                     <input
@@ -178,7 +188,43 @@ function NewPotluck(props) {
 
 
                 {/* Food Items */}
-                
+                <label>Category:
+                    <select
+                        onChange={onChange}
+                        value={values.category}
+                        name='category'
+                    >
+                        <option value=''>- Select a category -</option>
+                        <option value='appetizer'>Appetizer</option>
+                        <option value='maindish'>Main Dish</option>
+                        <option value='sidedish'>Side Dish</option>
+                        <option value='bread'>Bread</option>
+                        <option value='dessert'>Dessert</option>
+                        <option value='beverage'>Beverage</option>
+                        <option value='cups'>Cups</option>
+                        <option value='plates'>Plates</option>
+                        <option value='napkins'>Napkins</option>
+                        <option value='utensils'>Utensils</option>
+                    </select>
+                </label>
+
+                <label>Number Needed:
+                    <input
+                        value={values.numberneeded}
+                        onChange={onChange}
+                        name='numberneeded'
+                        type='text'
+                    />
+                </label>
+
+                <label>Food Notes:
+                    <input
+                        value={values.foodnotes}
+                        onChange={onChange}
+                        name='foodnotes'
+                        type='text'
+                    />
+                </label>
 
                 
                 {/* Invite Friends */}
@@ -186,9 +232,17 @@ function NewPotluck(props) {
 
 
                 {/* Notes & Submit Button */}
+                <label>Notes:
+                    <input
+                        value={values.notes}
+                        onChange={onChange}
+                        name='notes'
+                        type='text'
+                    />
+                </label>
 
+                <button disabled={disabled}>Submit</button>
 
-                
             </div>
         </form>
     )

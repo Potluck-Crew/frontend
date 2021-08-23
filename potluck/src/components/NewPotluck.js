@@ -1,10 +1,31 @@
 import React from 'react'
 
-function NewPotluck() {
+function NewPotluck(props) {
+    const {
+        values,
+        submit,
+        change,
+        disabled,
+        errors,
+    } = props
+
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
+
+    const onChange = evt => {
+        const { name, value, checked, type } = evt.target
+        const valueToUse = type === 'checkbox' ? checked : value;
+        change(name, valueToUse);
+    }
+
     return (
-        <div>
-            organizers can create new Potluck
-        </div>
+        <form className='form container' onSubmit={onSubmit}>
+            <div className='form-group submit'>
+                <h2>New Potluck</h2>
+            </div>
+        </form>
     )
 }
 

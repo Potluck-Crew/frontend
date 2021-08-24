@@ -1,7 +1,21 @@
+import axios from 'axios';
 import React from 'react'
 import './EditPotluck.css'
 
 function EditPotluck() {
+
+    editPotluck = e => {
+        e.preventDefault();
+        const newPotluck = {
+            id: this.id,
+            name: this.name,
+            date: this.date,
+            location: this.location,
+            food_items: this.food_items,
+        }
+        axios.put(`https://build-week4.herokuapp.com/api/events/:event_id`, newPotluck)
+        .then(res => console.log(res.data))
+    }
 
     let organizer = true;
 
@@ -21,14 +35,21 @@ function EditPotluck() {
             food_items: ['Appetizer', 'Main Dish']
         }
     ]
-
+    
     return (
         <div className="form-container">
             <h4>Edit Potluck</h4>
             {testPotlucks.map(potluck => (
             <div className='potluck'>
                 <h3>{potluck.name} </h3>
-                    <button>Edit Name</button>
+                    <input>Edit Name</input>
+                    <button onClick={this.editPotluck}>Submit Updated Name</button>
+                        <label>Edit Name:
+                            <input
+                                name='name'
+                                type='text'
+                            />
+                        </label>
                 <div className='potluck-info'>
                     <p>Location: {potluck.location}</p>
                         <button>Edit Location</button>

@@ -1,0 +1,52 @@
+body {
+    background-image: url('./assets/restaurant-chilling-out-classy-lifestyle-reserved-concept.jpg');
+    background-size: 250vh;
+}
+
+/* HEADER.JS STYLES */
+.header {
+    background-color:burlywood;
+    height: 4vh;
+    width: 100vw;
+    padding: 1%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    justify-content: space-between;
+}
+
+.nav {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+
+}
+
+.logo {
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: lowercase;
+    font-weight: bold;
+    padding: 1px 1px 1px 20px;
+    font-size: 28px;
+}
+
+/*  APP.JS STYLES */
+
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.content {
+    margin: 3%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

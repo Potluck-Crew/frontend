@@ -48,3 +48,15 @@ form label input {
 form p {
 	margin-top: 4rem;
 }
+
+.switch {
+	margin: auto 1rem;
+	width: 3rem;
+	height: 1.25rem;
+}
+
+.backToLogin {
+	margin-top: 1rem;
+	text-decoration: none;
+	color: blue;
+}

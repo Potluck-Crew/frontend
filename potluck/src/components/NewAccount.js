@@ -1,18 +1,43 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+
+import styled from 'styled-components';
 import './newAccount.css';
 
-function NewAccount() {
-    //Temp state for toggle
-    const [ checked, setChecked ] = useState(false);
+const Wrap = styled.div`
+display:flex;
+flex-direction: column;
+background-color: white; 
+width: 50vw;
+align-items:center;
+align-content: center;
+border-radius: 50px;
+text-align: center;
+padding: 5%;
+`
 
-    const onClick = () => {
-        setChecked( !checked );
+const initialValues = {
+    userName: '',
+    password: '',
+    rePassword: ''
+}
+
+function NewAccount() {
+
+    const [ newLogin, setNewLogin ] = useState(initialValues);
+
+    const onChange = (event) => {
+        setNewLogin({
+            ...newLogin,
+            [event.target.name]: event.target.value
+        })
+        console.log(newLogin);
     }
+    
 
     return (
         <div className = 'newAccount'>
-            <div className = 'wrap'>
+            <Wrap>
                     <h2>Sign up form</h2>
                 <form>
                     <label>Username:
@@ -20,6 +45,7 @@ function NewAccount() {
                             type = 'text'
                             name = 'username'
                             placeholder = 'Username'
+                            onChange = { onChange }
                         />
                     </label>
                     <label>Password:
@@ -27,6 +53,7 @@ function NewAccount() {
                             type = 'text'
                             name = 'password'
                             placeholder = 'Password'
+                            onChange = { onChange }
                         />
                     </label>
                     <label>Re-enter Password:
@@ -34,17 +61,20 @@ function NewAccount() {
                             type = 'text'
                             name = 're-enter-password'
                             placeholder = 'Re-enter Password'
+                            onChange = { onChange }
                         />
                     </label>
-                    <p>Role: Organizer 
-                        {/* <Switch
-                            onChange = { onClick } 
-                            checked = { checked }
-                            color = 'red'
-                        /> */}
-                    Guest</p>
+                    <p>Role:</p>
+                    <select>
+                    <label>Organizer 
+                        <input type = 'radio' />
+                    </label> 
+                    <label>Guest
+                        <input type = 'radio' />
+                    </label> 
+                    </select>
                 </form>
-             </div>
+             </Wrap>
         </div>
     )
 }

@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import './EditPotluck.css'
 
 function EditPotluck() {
 
-    editPotluck = e => {
+    const [newValues, setNewValues] = useState({})
+
+    const editPotluck = e => {
         e.preventDefault();
         const newPotluck = {
             id: this.id,
@@ -14,7 +16,9 @@ function EditPotluck() {
             food_items: this.food_items,
         }
         axios.put(`https://build-week4.herokuapp.com/api/events/:event_id`, newPotluck)
-        .then(res => console.log(res.data))
+        .then(res => {
+            setNewValues(res.data);
+        })
     }
 
     let organizer = true;
@@ -43,13 +47,7 @@ function EditPotluck() {
             <div className='potluck'>
                 <h3>{potluck.name} </h3>
                     <input>Edit Name</input>
-                    <button onClick={this.editPotluck}>Submit Updated Name</button>
-                        <label>Edit Name:
-                            <input
-                                name='name'
-                                type='text'
-                            />
-                        </label>
+                    <button onClick={editPotluck}>Submit Updated Name</button>
                 <div className='potluck-info'>
                     <p>Location: {potluck.location}</p>
                         <button>Edit Location</button>

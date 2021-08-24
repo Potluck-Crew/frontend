@@ -1,7 +1,6 @@
 import './App.css';
 // import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
-
 import NewAccount from './components/NewAccount';
 import Login from './components/Login';
 import EditPotluck from './components/EditPotluck';
@@ -56,20 +55,28 @@ function App() {
 //     schema.isValid(formValues).then(valid => setDisabled(!valid))
 //   }, [formValues])
 
+// const initialFormValues = {
+ //   evtname: '',
+ //   notes: '',
+ //   glutenfree: false,
+ //   vegetarian: false,
+ //   vegan: false,
+ // }
+
+ // const initialFormErrors = {
+ //   evtname: '',
+ //   notes: '',
+ // }
+
+ // const initialDisabled = true
+
   return (
     <Router>
       <div className="App">
-        <Header />
-      Hello, World. Links for easy building;
-        <div><Link to='/'>Home</Link></div>
-        <div><Link to='/new'>New Account</Link></div>
-        <div><Link to='/potlucks'>All Potlucks Info</Link></div>
-        <div><Link to='/addpotluck'>New Potluck</Link></div>
-        <div><Link to='/editpotluck'>Edit Potluck</Link></div>
-        <div><Link to='/potlucksignup'>Signup Potluck</Link></div>
-        
+        <Header /> 
+        <div className='content'>
         <Switch>
-            <Route path='/new' component={NewAccount} />
+            <Route path='/newaccount' component={NewAccount} />
             <Route path='/potlucks' component={Potlucks} />
             <Route 
               path='/addpotluck' 
@@ -80,11 +87,13 @@ function App() {
               // disabled={disabled}
               // errors={formErrors}
             />
+            <Route path='/addnewpotluck' component={NewPotluck} />
             <Route path='/potlucksignup' component={PotluckSignup} />
             <Route path='/editpotluck' component={EditPotluck} />
             <Route path='/' component={Login} />
             
         </Switch>
+        </div>
       </div>
     </Router>
   );

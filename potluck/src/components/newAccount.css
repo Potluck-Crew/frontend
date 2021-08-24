@@ -1,0 +1,62 @@
+.newAccount {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50rem;
+	border: 1px solid black;
+}
+
+.newAccount .wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 75%;
+	width: 30%;
+	background-color: #f4f4f4;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+}
+
+.newAccount .wrap h2 {
+	justify-content: flex-start;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
+	width: 75%;
+	margin-top: 3rem;
+}
+
+form label {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+	width: 75%;
+}
+
+form label input {
+	display: flex;
+	justify-content: flex-end;
+	margin-left: 1rem;
+}
+
+form p {
+	margin-top: 4rem;
+}
+
+.switch {
+	margin: auto 1rem;
+	width: 3rem;
+	height: 1.25rem;
+}
+
+.backToLogin {
+	margin-top: 1rem;
+	text-decoration: none;
+	color: blue;
+}

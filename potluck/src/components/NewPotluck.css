@@ -1,4 +1,17 @@
-h2{
-    color: green;
+.formsubmit{
+    max-width: 80%;
+    padding: 30px;
+    display:flex;
+    justify-content: center;
+    margin-top: 200%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px -2px #000;
+    margin-bottom: 30px;
 }
 
+button{
+    margin-top: 20%;
+    margin-bottom: 20%;
+}

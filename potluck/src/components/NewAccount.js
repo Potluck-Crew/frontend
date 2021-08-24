@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Switch from "react-switch";
+import { Link } from 'react-router-dom';
 import './newAccount.css';
 
 function NewAccount() {
@@ -40,9 +41,10 @@ function NewAccount() {
                         <Switch
                             onChange = { onClick } 
                             checked = { checked }
-                            color = 'red'
+                            className = 'switch'
                         />
                     Guest</p>
+                    <Link to = '/' className = 'backToLogin'>Back to login</Link>
                 </form>
              </div>
         </div>

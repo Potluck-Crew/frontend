@@ -1,54 +1,55 @@
 import React from 'react'
+import './NewPotluck.css'
 
-function NewPotluck(props) {
-    const {
-        values,
-        submit,
-        change,
-        disabled,
-        errors,
-    } = props
+function NewPotluck() {
+    // const {
+    //     values,
+    //     submit,
+    //     change,
+    //     disabled,
+    //     errors,
+    // } = props
 
-    const onSubmit = evt => {
-        evt.preventDefault()
-        submit()
-    }
+    // const onSubmit = evt => {
+    //     evt.preventDefault()
+    //     submit()
+    // }
 
-    const onChange = evt => {
-        const { name, value, checked, type } = evt.target
-        const valueToUse = type === 'checkbox' ? checked : value;
-        change(name, valueToUse);
-    }
+    // const onChange = evt => {
+    //     const { name, value, checked, type } = evt.target
+    //     const valueToUse = type === 'checkbox' ? checked : value;
+    //     change(name, valueToUse);
+    // }
 
     return (
-        <form className='form container' onSubmit={onSubmit}>
+        <form 
+            className='form container' 
+            // onSubmit={onSubmit}
+        >
             <div className='form-group submit'>
                 <h2>New Potluck</h2>
 
 
                 {/* Errors */}
-                <div className='errors'>
-                    <div>{errors.name}</div>
-                    <div>{errors.month}</div>
-                    <div>{errors.day}</div>
-                    <div>{errors.year}</div>
-                    <div>{errors.ampm}</div>
-                </div>
+                {/* <div className='errors'>
+                    <div>{errors.evtname}</div>
+                    <div>{errors.notes}</div>
+                </div> */}
 
 
                 {/* Event Details */}
                 <label>Event Name: 
                     <input
-                        value={values.name}
-                        onChange={onChange}
-                        name='name'
+                        // value={values.evtname}
+                        // onChange={onChange}
+                        name='evtname'
                         type='text'
                     />
                 </label>
 
 
                 {/* Event Date */}
-                <h4>Event Date: </h4>
+                {/* <h4>Event Date: </h4>
 
                 <label>Month: 
                     <select
@@ -123,11 +124,11 @@ function NewPotluck(props) {
                         <option value='2021'>2021</option>
                         <option value='2022'>2022</option>
                     </select>
-                </label>
+                </label> */}
 
 
                 {/* Event Time */}
-                <label>Event Time:
+                {/* <label>Event Time:
                     <input
                         value={values.time}
                         onChange={onChange}
@@ -146,11 +147,11 @@ function NewPotluck(props) {
                         <option value='am'>AM</option>
                         <option value='pm'>PM</option>
                     </select>
-                </label>
+                </label> */}
 
 
                 { /* Event Address */}
-                <label>Event Address:
+                {/* <label>Event Address:
                     <input
                         value={values.address}
                         onChange={onChange}
@@ -184,11 +185,11 @@ function NewPotluck(props) {
                         name='zip'
                         type='text'
                     />
-                </label>
+                </label> */}
 
 
                 {/* Food Items */}
-                <label>Category:
+                {/* <label>Category:
                     <select
                         onChange={onChange}
                         value={values.category}
@@ -217,12 +218,43 @@ function NewPotluck(props) {
                     />
                 </label>
 
-                <label>Food Notes:
+                <label>Food Description:
                     <input
-                        value={values.foodnotes}
+                        value={values.description}
                         onChange={onChange}
-                        name='foodnotes'
+                        name='description'
                         type='text'
+                    />
+                </label> */}
+
+
+
+                {/* Dietary Restrictions */}
+                <h4>Dietary Restrictions</h4>
+                <label>Gluten Free
+                    <input
+                        type="checkbox"
+                        name="glutenfree"
+                        // checked={values.glutenfree}
+                        // onChange={onChange}
+                    />
+                </label>
+
+                <label>Vegetarian
+                    <input
+                        type="checkbox"
+                        name="vegetarian"
+                        // checked={values.vegetarian}
+                        // onChange={onChange}
+                    />
+                </label>
+
+                <label>Vegan
+                    <input
+                        type="checkbox"
+                        name="vegan"
+                        // checked={values.vegan}
+                        // onChange={onChange}
                     />
                 </label>
 
@@ -234,14 +266,16 @@ function NewPotluck(props) {
                 {/* Notes & Submit Button */}
                 <label>Notes:
                     <input
-                        value={values.notes}
-                        onChange={onChange}
+                        // value={values.notes}
+                        // onChange={onChange}
                         name='notes'
                         type='text'
                     />
                 </label>
 
-                <button disabled={disabled}>Submit</button>
+                <button 
+                    // disabled={disabled}
+                >Submit</button>
 
             </div>
         </form>

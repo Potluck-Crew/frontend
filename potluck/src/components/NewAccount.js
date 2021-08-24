@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Switch from "react-switch";
+import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import './newAccount.css';
 
 function NewAccount() {
@@ -37,11 +37,11 @@ function NewAccount() {
                         />
                     </label>
                     <p>Role: Organizer 
-                        <Switch
+                        {/* <Switch
                             onChange = { onClick } 
                             checked = { checked }
                             color = 'red'
-                        />
+                        /> */}
                     Guest</p>
                 </form>
              </div>
@@ -49,4 +49,4 @@ function NewAccount() {
     )
 }
 
-export default NewAccount
+export default NewAccount;

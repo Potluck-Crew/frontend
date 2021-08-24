@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { loginStart } from '../actions'
+import './NewPotluck.css'
 
 const initialPotluck = {
     event_name:'',
@@ -39,7 +40,7 @@ function NewPotluck(props) {
     }
 
     return (
-            <div className='form-group submit'>
+            <div className='formsubmit'>
                 <form onSubmit={onSubmit}>
                 <h2>New Potluck</h2>
 

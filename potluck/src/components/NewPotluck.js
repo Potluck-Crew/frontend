@@ -73,49 +73,30 @@ function NewPotluck(props) {
                 </label>
                 {/* Food Items */}
                 
-                <label>Side Dish
+                <label>Item 1:
                     <input
-                        type="radio"
-                        name="category"
-                        value="sidedish"
+                        type="text"
+                        name="food_items"
+                        value={potluck.dish_name}
                         onChange={handleChange}
-                        checked={potluck.category === "sidedish"}
                     />
                 </label>
-                <label>Bread
+                
+                <label>Item 2:
                     <input
-                        type="radio"
-                        name="category"
-                        value="bread"
+                        type="text"
+                        name="food_items"
+                        value={potluck.dish_name}
                         onChange={handleChange}
-                        checked={potluck.category === "bread"}
                     />
                 </label>
-                <label>Dessert
+
+                <label>Item 3:
                     <input
-                        type="radio"
-                        name="category"
-                        value="dessert"
+                        type="text"
+                        name="food_items"
+                        value={potluck.dish_name}
                         onChange={handleChange}
-                        checked={potluck.category === "dessert"}
-                    />
-                </label>
-                <label>Beverage
-                    <input
-                        type="radio"
-                        name="category"
-                        value="beverage"
-                        onChange={handleChange}
-                        checked={potluck.category === "beverage"}
-                    />
-                </label>
-                <label>Utensils
-                    <input
-                        type="radio"
-                        name="category"
-                        value="utensils"
-                        onChange={handleChange}
-                        checked={potluck.category === "utensils"}
                     />
                 </label>
 

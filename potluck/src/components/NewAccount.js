@@ -27,6 +27,7 @@ function NewAccount() {
 
     const [ newLogin, setNewLogin ] = useState(initialValues);
     const history = useHistory();
+    
     const onChange = (event) => {
         setNewLogin({
             ...newLogin,

@@ -22,10 +22,13 @@ function Header(props) {
         <div className='header'>
             <Link className='logo'  to='/'>perfect potluck</Link>
             <div>
-                {props.isLoggedIn ? '' : <Link className="nav" to='/newaccount'>CREATE AN ACCOUNT</Link>}
-                {localStorage.getItem('token') && <span>Welcome Back, {props.username}!</span>} 
-                {localStorage.getItem('token') && <Link className="nav" onClick={handleLogout} to='/potlucks'>VIEW POTLUCKS </Link>} 
-                {localStorage.getItem('token') && <Link className="nav" onClick={handleLogout} to='/logout'>LOG OUT</Link>}
+                {props.isLoggedIn ? <div>
+                  <span>Welcome Back, {props.username}!</span>
+                  <Link className="nav" onClick={handleLogout} to='/logout'>LOG OUT</Link>
+                  <Link className="nav" to='/potlucks'>VIEW POTLUCKS </Link>
+                </div> : <Link className="nav" to='/newaccount'>CREATE AN ACCOUNT</Link>}
+                
+            
             </div>
         </div>
     )

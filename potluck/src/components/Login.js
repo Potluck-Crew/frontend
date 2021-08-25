@@ -41,7 +41,7 @@ function Login(props) {
                 <p>Coordinate potluck dishes, supplies and party RSVPs with online sign up sheets for gatherings with family, friends and large groups.</p>
             <div className='login'>
             <form className='general_form' onSubmit={handleSubmit}>
-                <p>Username: Ashley, Password: Password</p>
+              
                 {/* USERNAME INPUT */} <input 
                     type='text'
                     onChange={handleChange}

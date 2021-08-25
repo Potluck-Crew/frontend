@@ -11,7 +11,7 @@ body a {
 
 /* MULTI USE STYLES */
 .signup_button {
-    min-width: 15vw;
+    min-width: 20vw;
     padding: 17px 30px;
     margin-top: 20px;
     background-color: black;
@@ -19,6 +19,7 @@ body a {
     color: white;
     font-size: 14px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 
@@ -65,11 +66,10 @@ body a {
 }
 
 .content {
-    margin: 3%;
-    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 }
 
 /* LOGIN STYLING */
@@ -96,6 +96,7 @@ body a {
     border-radius: 30px;
     text-align: center;
     padding: 5%;
+    margin: 4% 0% 1% 0%;
     max-width: 60vw;
     border: 1px solid rgba(0,0,0,0.24);
 
@@ -115,4 +116,32 @@ body a {
     border: 1px solid rgba(0,0,0,0.24);
     border-radius: 2px;
     font-size: 15px;
+}
+
+/* POTLUCKS.JS */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /* background-color: white;  */
+    align-items:center;
+    align-content: center;
+    border-radius: 30px;
+    text-align: center;
+    width: 100vw;
+  }
+
+.potluck {
+    min-width: 60vw;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px -2px #000;
+    background-color: #FFF;
+    margin-bottom: 30px;
+}
+
+.potluck a {
+    color: black;
 }

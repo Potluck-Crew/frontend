@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import { useHistory } from 'react-router';
 
 import styled from 'styled-components';
 import './newAccount.css';
@@ -17,15 +18,15 @@ padding: 5%;
 `
 
 const initialValues = {
-    userName: '',
+    username: '',
     password: '',
-    rePassword: ''
+    role: ''
 }
 
 function NewAccount() {
 
     const [ newLogin, setNewLogin ] = useState(initialValues);
-
+    const history = useHistory();
     const onChange = (event) => {
         setNewLogin({
             ...newLogin,
@@ -33,46 +34,54 @@ function NewAccount() {
         })
         console.log(newLogin);
     }
+
+    const handleSignUp = e => {
+        e.preventDefault();
+        console.log(newLogin);
+        axios.post('https://build-week4.herokuapp.com/api/auth/register', newLogin)
+        .then(res => {
+            console.log(res);
+            history.push('/');
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
     
 
     return (
         <div className = 'newAccount'>
             <Wrap>
                     <h2>Sign up form</h2>
-                <form>
+                <form onSubmit={ handleSignUp }>
                     <label>Username:
                         <input  
+                            id='username'
                             type = 'text'
                             name = 'username'
-                            placeholder = 'Username'
+                            placeholder = 'username'
+                            //value={newLogin.username}
                             onChange = { onChange }
                         />
                     </label>
                     <label>Password:
                         <input  
+                            id='password'
                             type = 'text'
                             name = 'password'
-                            placeholder = 'Password'
+                            placeholder = 'password'
+                            value={newLogin.password}
                             onChange = { onChange }
                         />
                     </label>
-                    <label>Re-enter Password:
-                        <input  
-                            type = 'text'
-                            name = 're-enter-password'
-                            placeholder = 'Re-enter Password'
-                            onChange = { onChange }
-                        />
+                    <label>Role:
+                        <select id='role' name='role' value={newLogin.role} onChange= { onChange }>
+                            <option value='default'>select a role</option>
+                            <option value='guest'>guest</option>
+                            <option value='organizer'>organizer</option>
+                        </select>
                     </label>
-                    <p>Role:</p>
-                    <select>
-                    <label>Organizer 
-                        <input type = 'radio' />
-                    </label> 
-                    <label>Guest
-                        <input type = 'radio' />
-                    </label> 
-                    </select>
+                    <button id='submit'>Sign Up</button>
                 </form>
              </Wrap>
         </div>

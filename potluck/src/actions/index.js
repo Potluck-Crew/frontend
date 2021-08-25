@@ -14,7 +14,7 @@ export const loginStart = cred => dispatch => {
     return axios
     .post('https://build-week4.herokuapp.com/api/auth/login', cred)
     .then(res => {
-        console.log(res)
+        console.log('login data', res)
         dispatch({ type: LOGIN_USER, payload: res.data })
     })
     .catch(error => console.log('FIX THIS!', error))

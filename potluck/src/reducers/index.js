@@ -18,11 +18,13 @@ const reducer = (state = initialState, action) => {
                 ...state,  
             };
         case LOGIN_USER:
+            localStorage.setItem('token', action.payload.token);
             return {
                 isLoggedIn: true,
                 username: action.payload.user.username,
                 token: action.payload.token,
                 role: action.payload.user.role,
+
             };
         default: return state;
     }

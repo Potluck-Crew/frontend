@@ -9,53 +9,7 @@ import NewPotluck from './components/NewPotluck';
 import PotluckSignup from './components/PotluckSignup';
 import Header from './components/Header';
 
-
-// const initialFormValues = {
- //   evtname: '',
- //   notes: '',
- //   glutenfree: false,
- //   vegetarian: false,
- //   vegan: false,
- // }
-
- // const initialFormErrors = {
- //   evtname: '',
- //   notes: '',
- // }
-
- // const initialDisabled = true
-
 function App() {
-
-  //   const [formValues, setFormValues] = useState(initialFormValues)
- //   const [formErrors, setFormErrors] = useState(initialFormErrors)
- //   const [disabled, setDisabled] = useState(initialDisabled)
-
- //   const validate = (name, value) => {
- //     yup.reach(schema, name)
- //       .validate(value)
- //       .then(() => setFormErrors({ ...formErrors, [name]: '' }))
- //       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
- //   }
-
- //   const inputChange = (name, value) => {
- //     setFormValues({
- //       ...formValues,
- //       [name]: value
- //     })
- //   }
-
- //   const formSubmit = () => {
- //     const newPotluck = {
- //       evtname: formValues.evtname.trim(),
- //       notes: formValues.notes.trim(),
- //       restrictions: ['glutenfree', 'vegetarian', 'vegan'].filter(restriction => !!formValues[restriction])
- //     }
- //   }
-
- //   useEffect(() => {
- //     schema.isValid(formValues).then(valid => setDisabled(!valid))
- //   }, [formValues])
 
   return (
     <Router>

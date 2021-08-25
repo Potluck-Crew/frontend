@@ -1,41 +1,13 @@
 import React, { useState } from 'react';
 import '../App.css';
-
-import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch, Link, useHistory} from "react-router-dom";
 import {loginStart} from '../actions/index'
 import { connect } from 'react-redux'
 import axios from 'axios';
 
-
-const Container = styled.div`
-display:flex;
-flex-direction: column;
-background-color: white; 
-width: 50vw;
-align-items:center;
-align-content: center;
-border-radius: 50px;
-text-align: center;
-padding: 5%;
-`
-
-const LoginBtn = styled.button`
-background-color: black;
-color: white;
-padding: 10px 40px 10px 40px;
-border: none;
-margin: 10% 0% 20% 0%;
-text-align:center;
-`
-
-const LoginForm = styled.div`
-`
-
 const credentials = {
     username: '',
-    password: '',
-}
+    password: '' }
 
 function Login() {
     const [login, setLogin] = useState(credentials);
@@ -63,45 +35,32 @@ function Login() {
     }
 
     return (
-        <div className='login'>
-        <Container>
-            <div>
-            <br />
-         <h1>Plan the Perfect Potluck</h1>
-         <p>Coordinate potluck dishes, supplies and party RSVPs with online sign up sheets for gatherings with family, friends and large groups.</p>
-            </div>
-{/* RIGHT BOX BEGINS -------------------- */}
-            <LoginForm>
-            <form onSubmit={handleSubmit}>
-{/* USERNAME INPUT */}
-            <label>Username:
-                <input
+        <div className='general_wrapper'>
+                <h1>Plan the Perfect Potluck</h1>
+                <p>Coordinate potluck dishes, supplies and party RSVPs with online sign up sheets for gatherings with family, friends and large groups.</p>
+            <div className='login'>
+            <form className='general_form' onSubmit={handleSubmit}>
+                
+                {/* USERNAME INPUT */} <input 
                     type='text'
                     onChange={handleChange}
                     value={login.username}
                     name='username'
+                    placeholder='username'
                 />
-            </label>
-{/* PASSWORD INPUT */}
-            <label>Password: &nbsp;
-                <input
+                
+                {/* PASSWORD INPUT */} <input 
                     type='password'
                     onChange={handleChange}
                     value={login.password}
                     name='password'
-                />
-            </label>
-{/* SUBMIT BUTTON */}
-            <LoginBtn>Sign in</LoginBtn>
+                    placeholder='password'
+                /> 
+                <button type='submit' className='signup_button'>Sign in</button> 
+                {/* SUBMIT BUTTON */}
             </form>
-            <p>
-                Don't have an account? <Link to='/newaccount'>Sign Up.</Link>
-            </p>
-
-            </LoginForm>
-{/* RIGHT BOX ENDS -------------------- */}
-
-        </Container>
+            <p>Don't have an account? <Link to='/newaccount'>Sign Up.</Link></p>
+            </div>
         </div>
     )
 }

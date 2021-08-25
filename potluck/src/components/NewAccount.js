@@ -32,7 +32,7 @@ function NewAccount() {
             ...newLogin,
             [event.target.name]: event.target.value
         })
-        console.log(newLogin);
+        //console.log(newLogin);
     }
 
     const handleSignUp = e => {
@@ -40,7 +40,7 @@ function NewAccount() {
         console.log(newLogin);
         axios.post('https://build-week4.herokuapp.com/api/auth/register', newLogin)
         .then(res => {
-            console.log(res);
+            console.log('Registration Success!', res);
             history.push('/');
         })
         .catch(err => {

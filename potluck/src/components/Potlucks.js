@@ -37,8 +37,8 @@ function Potlucks(props) {
                     <p>Date: {potluck.event_date}</p>
                       
 
-                    <p><Link to='/potlucksignup'> Sign up for this potluck</Link> | 
-                        &nbsp;{organizer && <Link to={`/editpotluck/${potluck.event_id}`}>Edit Potluck</Link>} </p>
+                    <p><Link to={`/potlucksignup/${potluck.event_id}`}> Sign up for this potluck</Link> | 
+                        &nbsp;{organizer && <Link to={`/editpotluck/${potluck.event_id}`}>Edit Potluck (Organizer Only)</Link>} </p>
                     </div>
                </div>
            ))}

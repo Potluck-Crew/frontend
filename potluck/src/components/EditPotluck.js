@@ -1,25 +1,46 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import './EditPotluck.css'
 
-function EditPotluck() {
+function EditPotluck(props) {
+    const { event_id } = useParams();
 
-    const [newValues, setNewValues] = useState({})
+    const [newPotluck, setNewPotluck] = useState({
+        event_name: '',
+        date: '',
+        location: ''
+    })
 
-    const editPotluck = e => {
-        e.preventDefault();
-        const newPotluck = {
-            id: this.id,
-            name: this.name,
-            date: this.date,
-            location: this.location,
-            food_items: this.food_items,
+    const { name, date, location } = props;
+
+    const handleChange = (e) => {
+            setNewPotluck({
+                ...newPotluck,
+                [e.target.name]: e.target.value,
+            })
         }
-        axios.put(`https://build-week4.herokuapp.com/api/events/:event_id`, newPotluck)
+        
+    const handleSubmit = e => {
+        e.preventDefault();
+        axios.put(`https://build-week4.herokuapp.com/api/events/${event_id}`, newPotluck)
         .then(res => {
-            setNewValues(res.data);
+            setNewPotluck(res.data);
+        })
+        .catch(err => {
+            console.error(err)
         })
     }
+
+    useEffect(() => {
+        axios.get(`https://build-week4.herokuapp.com/api/events/${event_id}`)
+        .then(res => {
+            setNewPotluck(res.data);
+        })
+        .catch(err => {
+            console.error(err)
+        })
+    }, [])
 
     let organizer = true;
 
@@ -39,20 +60,20 @@ function EditPotluck() {
             food_items: ['Appetizer', 'Main Dish']
         }
     ]
-    
+
     return (
         <div className="form-container">
             <h4>Edit Potluck</h4>
             {testPotlucks.map(potluck => (
             <div className='potluck'>
                 <h3>{potluck.name} </h3>
-                    <input>Edit Name</input>
-                    <button onClick={editPotluck}>Submit Updated Name</button>
+                    <input value={newPotluck.event_name} placeholder='Edit Name'/>
                 <div className='potluck-info'>
                     <p>Location: {potluck.location}</p>
-                        <button>Edit Location</button>
+                        <input value={newPotluck.location} placeholder='Edit Location' />
                     <p>Date: {potluck.date}</p>
-                        <button>Edit Date</button>
+                        <input value={newPotluck.date} placeholder='Edit Date' />
+                <button onClick={handleChange}>Submit Updates</button>
                 </div>
             </div>
             ))}

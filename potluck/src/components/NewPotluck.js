@@ -39,7 +39,7 @@ function NewPotluck(props) {
     }
 
     return (
-            <div className='form-group submit'>
+            <div className='general_wrapper'>
                 <form onSubmit={onSubmit}>
                 <h2>New Potluck</h2>
 
@@ -117,7 +117,7 @@ function NewPotluck(props) {
                         type='text'
                     />
                 </label>
-                <button>Submit</button>
+                <button className='signup_button'>Submit</button>
                 </form>
             </div>
        

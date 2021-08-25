@@ -1,7 +1,3 @@
-// PROBS WONT NEED THIS 
-// KEEPING JUST IN CASE
-
-
 import axios from 'axios';
 
 const axiosWithAuth = () => {
@@ -11,7 +7,7 @@ const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: "http://localhost:5000/api"
+        //baseURL: "http://localhost:5000/api"
     })
 }
 

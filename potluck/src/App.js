@@ -22,7 +22,7 @@ function App() {
             <Route path='/newaccount' component={NewAccount} />
             <Route path='/potlucks' component={Potlucks} />
             <Route path='/addnewpotluck' component={NewPotluck} />
-            <Route path='/potlucksignup' component={PotluckSignup} />
+            <Route path='/potlucksignup/:id' component={PotluckSignup} />
             <Route path='/editpotluck/:id' component={EditPotluck} />
             <Route path='/' component={Login} />
             

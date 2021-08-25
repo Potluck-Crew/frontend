@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { loginStart } from '../actions'
+import React, { useState } from 'react';
+import { loginStart } from '../actions';
+import './NewPotluck.css';
 
 const initialPotluck = {
     event_name:'',
@@ -71,24 +72,51 @@ function NewPotluck(props) {
                     />
                 </label>
                 {/* Food Items */}
-
-                <label>Category: 
-                    <select
-                        value=''
-                        name='category'
-                    >
-                        <option value=''>- Select a category -</option>
-                        <option value='appetizer'>Appetizer</option>
-                        <option value='maindish'>Main Dish</option>
-                        <option value='sidedish'>Side Dish</option>
-                        <option value='bread'>Bread</option>
-                        <option value='dessert'>Dessert</option>
-                        <option value='beverage'>Beverage</option>
-                        <option value='cups'>Cups</option>
-                        <option value='plates'>Plates</option>
-                        <option value='napkins'>Napkins</option>
-                        <option value='utensils'>Utensils</option>
-                    </select>
+                
+                <label>Side Dish
+                    <input
+                        type="radio"
+                        name="category"
+                        value="sidedish"
+                        onChange={handleChange}
+                        checked={potluck.category === "sidedish"}
+                    />
+                </label>
+                <label>Bread
+                    <input
+                        type="radio"
+                        name="category"
+                        value="bread"
+                        onChange={handleChange}
+                        checked={potluck.category === "bread"}
+                    />
+                </label>
+                <label>Dessert
+                    <input
+                        type="radio"
+                        name="category"
+                        value="dessert"
+                        onChange={handleChange}
+                        checked={potluck.category === "dessert"}
+                    />
+                </label>
+                <label>Beverage
+                    <input
+                        type="radio"
+                        name="category"
+                        value="beverage"
+                        onChange={handleChange}
+                        checked={potluck.category === "beverage"}
+                    />
+                </label>
+                <label>Utensils
+                    <input
+                        type="radio"
+                        name="category"
+                        value="utensils"
+                        onChange={handleChange}
+                        checked={potluck.category === "utensils"}
+                    />
                 </label>
 
                 <label>Number Needed: (Optional)

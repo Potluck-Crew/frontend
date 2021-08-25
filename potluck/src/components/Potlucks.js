@@ -1,7 +1,9 @@
 import React from 'react'
 import './Potlucks.css';
+import { connect } from 'react-redux'
+import axios from 'axios'
 
-function Potlucks() {
+function Potlucks(props) {
 
     let organizer = true;
 
@@ -21,8 +23,8 @@ function Potlucks() {
     ]
     return (
         <div className='container'>
-           <h2>Available Potlucks</h2>
-
+           <h2>Available Potlucks{props.username}</h2>
+            
             {/*Looping through potlucks */}
             {testPotlucks.map(potluck => (
                <div className='potluck'> 
@@ -45,4 +47,11 @@ function Potlucks() {
     )
 }
 
-export default Potlucks
+const mapStateToProps = (state) => {
+    return {
+      token: state.token,   
+      username: state.username,
+    };
+  };
+
+export default connect(mapStateToProps,{})(Potlucks)

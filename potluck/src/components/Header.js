@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import axiosWithAuth from '../helpers/axiosWithAuth';
 
 
-function Header() {
+function Header(props) {
 
 // There might be a better place for this but for now keeping it here
   const handleLogout = () => {
@@ -20,11 +20,12 @@ function Header() {
 
     return (
         <div className='header'>
-            <div className='logo'>perfect potluck</div>
+            <Link className='logo'  to='/'>perfect potluck</Link>
             <div>
-                <Link className="nav" to='/'>Home</Link>
-                <Link className="nav" to='/'>Login</Link>
-                <Link className="nav" onClick={handleLogout} to='/logout'>SIGN OUT</Link>
+                {props.isLoggedIn ? '' : <Link className="nav" to='/newaccount'>CREATE AN ACCOUNT</Link>}
+                {localStorage.getItem('token') && <span>Welcome Back, {props.username}!</span>} 
+                {localStorage.getItem('token') && <Link className="nav" onClick={handleLogout} to='/potlucks'>VIEW POTLUCKS </Link>} 
+                {localStorage.getItem('token') && <Link className="nav" onClick={handleLogout} to='/logout'>LOG OUT</Link>}
             </div>
         </div>
     )
@@ -33,7 +34,8 @@ function Header() {
 const mapStateToProps = (state) => {
     return {
       token: state.token,
-      
+      isLoggedIn: state.isLoggedIn,
+      username: state.username,
     };
   };
 

@@ -22,7 +22,8 @@ function Potlucks(props) {
         })
     }, [])
 
-    const handleCreate = () => {
+    const handleCreate = (e) => {
+        e.preventDefault();
         push('/addnewpotluck')
     }
  

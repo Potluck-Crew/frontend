@@ -9,7 +9,9 @@ const credentials = {
     username: '',
     password: '' }
 
-function Login() {
+
+
+function Login(props) {
     const [login, setLogin] = useState(credentials);
     const { push } = useHistory();
 
@@ -23,14 +25,15 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(login);
-        axios.post('https://build-week4.herokuapp.com/api/auth/login', login)
-        .then(res => {
-            console.log(res)
+        props.loginStart(login)
+        // console.log(login);
+        // axios.post('https://build-week4.herokuapp.com/api/auth/login', login)
+        // .then(res => {
+        //     console.log(res)
             
-        })
-        .catch(error => console.log(error));
-        push('/potlucks')
+        // })
+        // .catch(error => console.log(error));
+        // push('/potlucks')
         console.log('You are logged in!')
     }
 
@@ -65,4 +68,4 @@ function Login() {
     )
 }
 
-export default connect(null, {loginStart})(Login);
+export default connect(null, { loginStart })(Login);

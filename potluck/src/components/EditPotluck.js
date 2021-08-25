@@ -9,17 +9,18 @@ function EditPotluck(props) {
     const { push } = useHistory();
 	const { id } = useParams();
 
-
-      const [dishes, setDishes] = useState([
-        {
-            dish_id: null,
-            dish_name:'',
-        },
-    ])
+    //   const [dishes, setDishes] = useState([
+    //     {
+    //         dish_id: null,
+    //         dish_name:'',
+    //     },
+    // ])
     
     const [potluck,setPotluck] = useState({
+        // date: '',
+        // location: '',
         event_date: '',
-        event_location: '',
+        event_location:'',
         event_name: '',
         event_dishes: [
             {
@@ -36,20 +37,26 @@ function EditPotluck(props) {
         console.log('data changed', potluck)
     }
 
-    const handleDishChange = (e) => {
+    // const handleDishChange = (e) => {
         // setDishes({
         //     ...dishes,
         //     dish_name: e.target.value
 
         // })
-        console.log(e.target.name)
-        console.log(e.target.value)
+    //     console.log(e.target.name)
+    //     console.log(e.target.value)
 
-    }
+    // }
 
     const handleSubmit = e => {
         e.preventDefault();
-        axiosWithAuth().put(`https://build-week4.herokuapp.com/api/events/${id}`, potluck)
+        console.log('before',potluck)
+        const formatData = {
+            date: potluck.event_date,
+            location: potluck.event_location,
+            event_name: potluck.event_name
+        }
+        axiosWithAuth().put(`https://build-week4.herokuapp.com/api/events/${id}`, formatData)
         .then(res => {
             console.log(res)
             push('/potlucks')
@@ -66,12 +73,12 @@ function EditPotluck(props) {
            console.log('potluck data',potluck)
            setPotluck(res.data)
        })
-       axiosWithAuth().get(`https://build-week4.herokuapp.com/api/dishes/${id}/dishes`)
-       .then(res => {
-           setDishes(res.data)
-           console.log('data', res)
-           console.log('dishes', dishes)
-       })
+    //    axiosWithAuth().get(`https://build-week4.herokuapp.com/api/dishes/${id}/dishes`)
+    //    .then(res => {
+    //        setDishes(res.data)
+    //        console.log('data', res)
+    //        console.log('dishes', dishes)
+    //    })
     }, [])
 
 // THE FORM DISPLAYS THE CURRENT VALUES, 

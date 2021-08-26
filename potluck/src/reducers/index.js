@@ -8,6 +8,7 @@ export const initialState = {
     error: '',
     token: null,
     food_items: [],
+    user_id: '',
 }
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +25,7 @@ const reducer = (state = initialState, action) => {
                 username: action.payload.user.username,
                 token: action.payload.token,
                 role: action.payload.user.role,
+                user_id: action.payload.user.user_id,
 
             };
         default: return state;

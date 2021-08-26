@@ -5,7 +5,11 @@ import './NewPotluck.css';
 
 
 
-function NewPotluck() {
+function NewPotluck(props) {
+    const{
+        disabled,
+        // errors,
+    } = props
 
     const initialPotluck = {
         event_name:'',
@@ -56,6 +60,7 @@ function NewPotluck() {
                         onChange={handleChange}
                     />
                 </label>
+                <div>{errors.event_name}</div>
                 {/* Event Date */}
                 <label>Date of Event: (MM/DD/YYYY)
                     <input
@@ -65,6 +70,7 @@ function NewPotluck() {
                         onChange={handleChange}
                     />
                 </label>
+                <div>{errors.event_date}</div>
                 {/* Food Items */}
                 
                 <label>Item 1:
@@ -122,7 +128,7 @@ function NewPotluck() {
                         onChange={handleChange}
                     />
                 </label>
-                <button className='signup_button'>Submit</button>
+                <button className='signup_button' disabled={disabled}>Submit</button>
                 </form>
             </div>
        

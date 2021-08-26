@@ -4,12 +4,7 @@ import axiosWithAuth from '../helpers/axiosWithAuth';
 import './NewPotluck.css';
 
 
-
-function NewPotluck(props) {
-    const{
-        disabled,
-        // errors,
-    } = props
+function NewPotluck() {
 
     const initialPotluck = {
         event_name:'',
@@ -71,6 +66,16 @@ function NewPotluck(props) {
                     />
                 </label>
                 <div>{errors.event_date}</div>
+                {/* Event Location */}
+                <label>Location:
+                    <input
+                        value={potluck.event_location}
+                        name='location'
+                        type='text'
+                        onChange={handleChange}
+                    />
+                </label>
+                <div>{errors.event_location}</div>
                 {/* Food Items */}
                 
                 <label>Item 1:
@@ -120,15 +125,13 @@ function NewPotluck(props) {
 
 
                 {/* Notes & Submit Button */}
-                 <label>Notes: (Optional)
+                <label>Notes: (Optional)
                     <input
-                        value={potluck.location}
-                        name='location'
+                        name='notes'
                         type='text'
-                        onChange={handleChange}
                     />
                 </label>
-                <button className='signup_button' disabled={disabled}>Submit</button>
+                <button className='signup_button'>Submit</button>
                 </form>
             </div>
        

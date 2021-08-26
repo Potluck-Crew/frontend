@@ -81,7 +81,7 @@ function NewPotluck(props) {
                         onChange={handleChange}
                     />
                 </label>
-                
+
                 <label>Item 2:
                     <input
                         type="text"

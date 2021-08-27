@@ -18,8 +18,6 @@ function EditPotluck(props) {
     // ])
     
     const [potluck,setPotluck] = useState({
-        // date: '',
-        // location: '',
         event_date: '',
         event_location:'',
         event_name: '',
@@ -88,6 +86,7 @@ function EditPotluck(props) {
 
     return ( 
         <div className='general_wrapper'>
+            <h2>Edit Potluck</h2>
             <form onSubmit={handleSubmit}>
                 <h4>Edit Name:</h4>
                 <input 

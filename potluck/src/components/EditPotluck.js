@@ -3,6 +3,7 @@ import '../App.css'
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import axiosWithAuth from '../helpers/axiosWithAuth';
+import './EditPotluck.css';
 
 
 function EditPotluck(props) {
@@ -17,8 +18,6 @@ function EditPotluck(props) {
     // ])
     
     const [potluck,setPotluck] = useState({
-        // date: '',
-        // location: '',
         event_date: '',
         event_location:'',
         event_name: '',
@@ -87,19 +86,23 @@ function EditPotluck(props) {
 
     return ( 
         <div className='general_wrapper'>
+            <h2>Edit Potluck</h2>
             <form onSubmit={handleSubmit}>
+                <h4>Edit Name:</h4>
                 <input 
                     value={potluck.event_name}
                     name='event_name'
                     type='text'
                     onChange={handleChange}
                 />
+                <h4>Edit Date:</h4>
                 <input 
                     value={potluck.event_date}
                     name='event_date'
                     type='text'
                     onChange={handleChange}
                 />
+                <h4>Edit Location:</h4>
                 <input 
                     value={potluck.event_location}
                     name='event_location'
